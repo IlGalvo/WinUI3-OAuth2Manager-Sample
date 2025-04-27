@@ -1,8 +1,8 @@
-# WinUI3OAuth2ManagerSample
+# WinUI3 OAuth2Manager Client/Server Sample 
 
 ## Overview
 
-**WinUI3OAuth2ManagerSample** is a full-stack example demonstrating how to integrate the **Windows App SDK**’s **OAuth2Manager** in a **WinUI 3** client alongside a minimal **ASP.NET Core** authorization server powered by **OpenIddict**. The **Client** project shows how to launch the system browser to perform the Authorization Code + PKCE flow and receive the callback via protocol activation, while the **Server** project implements an in-memory OpenIddict server exposing `/authorize` and `/token` endpoints for rapid local testing.
+This is a full-stack example demonstrating how to integrate the **Windows App SDK**’s **OAuth2Manager** in a **WinUI 3** client alongside a minimal **ASP.NET Core** authorization server powered by **OpenIddict**. The **Client** project shows how to launch the system browser to perform the Authorization Code + PKCE flow and receive the callback via protocol activation, while the **Server** project implements an in-memory OpenIddict server exposing `/authorize` and `/token` endpoints for rapid local testing.
 
 ## Table of Contents
 
@@ -50,12 +50,9 @@ WinUI3OAuth2ManagerSample/
 
 ## Usage
 
-1. In the **Client** app, click **Authorize**. The system browser navigates to:
-   ```
-   https://localhost:5001/connect/authorize?client_id=winui-client&response_type=code&scope=api&redirect_uri=winui3oauth2://callback&code_challenge=...
-   ```
+1. In the **Client** app, click **Authorize**. The system browser navigates to auth URI.
 2. The **Server** prompts for user consent and issues an authorization code.
-3. The **Client** intercepts the custom URI (`winui3oauth2://callback?code=...`) via protocol activation.
+3. The **Client** intercepts the custom URI callback via protocol activation.
 
 ## Contributing
 
