@@ -12,13 +12,14 @@ namespace Server
             using var scope = _scopeFactory.CreateScope();
             var manager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
 
-            if (await manager.FindByClientIdAsync("WinUI3TestClient", cancellationToken) is null)
+            if (await manager.FindByClientIdAsync("WinUI3TestClientId", cancellationToken) is null)
             {
                 await manager.CreateAsync(new OpenIddictApplicationDescriptor
                 {
-                    ClientId = "WinUI3TestClient",
+                    ClientId = "WinUI3TestClientId",
+                    ClientSecret = "WinUI3TestClientSecret",
                     DisplayName = "WinUI 3 Test Client",
-                    RedirectUris = { new Uri("ms-testoauthcsharp-launch://oauthcallback") },
+                    RedirectUris = { new Uri("ms-testoauthcsharp-launch://oauthcallback/") },
                     Permissions =
                     {
                         Permissions.Endpoints.Authorization,
